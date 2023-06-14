@@ -9,7 +9,7 @@ from api.serializers import (CategorySerializer, CommentSerializer,
 from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, mixins, viewsets
+from rest_framework import filters, mixins, viewsets, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import MethodNotAllowed
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -167,6 +167,10 @@ class SignUpView(APIView):
             return Response(
                 serializer.data, status=HTTP_200_OK)
 
+        return Response(
+            serializer.errors, status=status.HTTP_400_BAD_REQUEST
+        )
+
 
 class TokenView(APIView):
     """Обрабатывает получения токена, проверяя confirmation_code."""
@@ -187,3 +191,7 @@ class TokenView(APIView):
             return Response(
                 {'confirmation_code': 'Некорректный код подтверждения'},
                 status=HTTP_400_BAD_REQUEST)
+
+        return Response(
+            serializer.errors, status=status.HTTP_400_BAD_REQUEST
+        )
