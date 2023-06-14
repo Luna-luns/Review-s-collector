@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
-          tags: lizaliza/newimage:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/newimage
 
   deploy:
     runs-on: ubuntu-latest
