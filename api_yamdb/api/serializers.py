@@ -1,10 +1,7 @@
 from rest_framework import serializers
 from rest_framework.exceptions import NotFound
-
-from reviews.models import (Category, Genre, Review,
-                            Title, Comment)
+from reviews.models import Category, Comment, Genre, Review, Title
 from services import categories, genres, users
-
 from users.serializers import StandartUsernameValidateSerializer
 
 

@@ -1,26 +1,26 @@
 from api.filters import TitleFilter
 from api.permissions import (IsAdminUser, IsAdminUserOrReadOnly,
-                             IsModeratorOrAuthor,
-                             IsAuthenticatedForCreateOrReadOnly)
-from api.serializers import (CategorySerializer,
+                             IsAuthenticatedForCreateOrReadOnly,
+                             IsModeratorOrAuthor)
+from api.serializers import (CategorySerializer, CommentSerializer,
                              GenreSerializer, ReviewSerializer,
-                             TokenSerializer, TitleSerializer,
-                             CommentSerializer, TitlePostSerializer)
+                             TitlePostSerializer, TitleSerializer,
+                             TokenSerializer)
 from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, mixins, viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import MethodNotAllowed
-from rest_framework.permissions import (AllowAny, IsAuthenticated)
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
-from reviews.models import Title, Review
-from services import (categories, genres, mails, users,
-                      titles, reviews, comments)
-from users.serializers import (UserSerializer, AdminUserSerializer,
+from reviews.models import Review, Title
+from services import (categories, comments, genres, mails, reviews, titles,
+                      users)
+from users.serializers import (AdminUserSerializer, UserSerializer,
                                UserSignUpSerializer)
 
 
