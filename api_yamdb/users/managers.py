@@ -1,6 +1,5 @@
-from django.contrib.auth.models import UserManager
-
 from api_yamdb.settings import RESERVED_NAME
+from django.contrib.auth.models import UserManager
 
 
 class CustomUserManager(UserManager):

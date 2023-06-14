@@ -1,4 +1,3 @@
-from django_filters.rest_framework import DjangoFilterBackend
 from api.filters import TitleFilter
 from api.permissions import (IsAdminUser, IsAdminUserOrReadOnly,
                              IsModeratorOrAuthor,
@@ -7,23 +6,22 @@ from api.serializers import (CategorySerializer,
                              GenreSerializer, ReviewSerializer,
                              TokenSerializer, TitleSerializer,
                              CommentSerializer, TitlePostSerializer)
-from users.serializers import (UserSerializer, AdminUserSerializer,
-                               UserSignUpSerializer)
 from django.contrib.auth.tokens import default_token_generator
+from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, mixins, viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import MethodNotAllowed
 from rest_framework.permissions import (AllowAny, IsAuthenticated)
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
-from rest_framework.exceptions import MethodNotAllowed
-
-from django.shortcuts import get_object_or_404
 from reviews.models import Title, Review
-
 from services import (categories, genres, mails, users,
                       titles, reviews, comments)
+from users.serializers import (UserSerializer, AdminUserSerializer,
+                               UserSignUpSerializer)
 
 
 class CreateRetrieveListViewSet(mixins.CreateModelMixin,

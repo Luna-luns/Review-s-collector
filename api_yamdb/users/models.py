@@ -1,8 +1,9 @@
-from django.db import models
-from django.core.validators import RegexValidator
 import re
-from users.managers import CustomUserManager
+
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import RegexValidator
+from django.db import models
+from users.managers import CustomUserManager
 
 
 class User(AbstractUser):

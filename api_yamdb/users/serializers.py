@@ -1,5 +1,5 @@
-from rest_framework import serializers
 from api_yamdb.settings import RESERVED_NAME
+from rest_framework import serializers
 from users.models import User
 
 
