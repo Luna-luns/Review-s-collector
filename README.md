@@ -1,11 +1,13 @@
 # Yamdb
 
+![Django-app workflow](https://github.com/Luna-luns/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+
 ## Технологии
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)
-![Django-app workflow](https://github.com/Luna-luns/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Описание проекта:
 
@@ -26,12 +28,12 @@ http://127.0.0.1:8000/redoc/
 Клонировать репозиторий, перейти в директорию с проектом.
 
 ```
-git clone git@github.com:Luna-luns/api_yamdb.git
+git clone git@github.com:Luna-luns/Review-s-collector.git
 ```
 Cоздать и активировать виртуальное окружение:
 
 ```
-python -m venv venv
+python3 -m venv venv
 ```
 
 ```
@@ -47,17 +49,17 @@ pip install -r requirements.txt
 Выполнить миграции:
 
 ```
-python manage.py makemigrations
+python3 manage.py makemigrations
 ```
 
 ```
-python manage.py migrate
+python3 manage.py migrate
 ```
 
 Запустить проект:
 
 ```
-python manage.py runserver
+python3 manage.py runserver
 ```
 
 
